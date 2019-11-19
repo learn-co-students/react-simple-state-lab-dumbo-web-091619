@@ -18,9 +18,9 @@ amount of cells, with the appropriate amount of values.
 
 ## Starter Code
 
-Let's take some time to understand the code base. First, open up the `index.js` file and you'll see that Matrix gets a `values` props of `pattern1` which is imported from `data.js`. Go ahead and open up `data.js` to see what `pattern1` is. You'll see that `pattern1` is a nested array of '#F00' and '#00F' (red and blue).
+Let's take some time to understand the code base. First, open up the `index.js` file and you'll see that Matrix gets a `values` prop of `pattern1` which is imported from `data.js`. Go ahead and open up `data.js` to see what `pattern1` is. You'll see that `pattern1` is a nested array of '#F00' and '#00F' (red and blue).
 
-Not let's look at `Matrix.js`. The `render()` method shows us what our `Matrix` component looks like: a `<div>` tag with `id=matrix`. But inside that div, we invoke `this.genMatrix()`. We see that `genMatrix` in an instance method which maps `this.props.values` to an array of JSX. Basically, every 'row' in `this.props.values` will create a `<div className="row">`. Furthermore,
+Not let's look at `Matrix.js`. The `render()` method shows us what our `Matrix` component looks like: a `<div>` tag with `id=matrix`. But inside that div, we invoke `this.genMatrix()`. We see that `genMatrix` is an instance method which maps `this.props.values` to an array of JSX. Basically, every 'row' in `this.props.values` will create a `<div className="row">`. Furthermore,
 if we look at `genRow`, we'll see that every row will map through it's `vals` to create an array of `<div className="cell">` JSX.
  
 In the end, the following HTML is generated (You can run this lab and use Chrome's developer tools to check for yourself):

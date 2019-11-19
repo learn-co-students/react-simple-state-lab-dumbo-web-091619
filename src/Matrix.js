@@ -1,21 +1,33 @@
-import React, { Component } from 'react';
+import React from 'react';
+import Cell from './Cell.js'
 
-export default class Matrix extends Component {
-  
-  genRow = (vals) => (
-    vals.map(val => <div className="cell"></div>) // replace me and render a cell component instead!
+export default class Matrix extends React.Component {
+
+
+  create_grid = () => (
+    this.props.values.map( colors =>
+		<div className="row">
+			{ this.create_row(colors) }
+		</div>)
   )
-  
-  genMatrix = () => (
-    this.props.values.map(rowVals => <div className="row">{this.genRow(rowVals)}</div>)
+
+  create_row = (colors) => (
+    colors.map( color => <Cell value={color} /> )
   )
-  
+
   render() {
     return (
       <div id="matrix">
-        {this.genMatrix()}
+        { this.create_grid() }
       </div>
     )
   }
-  
+
+}
+
+Matrix.defaultProps = {
+  values: (() => {
+    const default_row = ['#F00', '#F00', '#F00', '#F00', '#F00', '#F00', '#F00', '#F00', '#F00', '#F00']
+    return (new Array(10).fill(default_row))
+  })()
 }
